@@ -1,5 +1,6 @@
 <script>
   import { fly } from "svelte/transition";
+  import { getRandomBackground } from "../utils/backgroundUtil.js";
 
   export let post;
   let visible = false;
@@ -19,7 +20,6 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(30deg, #ff0033, #00ff00);
   }
 
   .post-info {
@@ -68,7 +68,7 @@
   rel="prefetch"
   href="blog/{post.slug}"
   title={post.title}>
-  <div class="card">
+  <div class="card" style="background: {getRandomBackground()}">
     <img class="post-image" src={post.image} alt={post.title} />
 
     {#if visible}
