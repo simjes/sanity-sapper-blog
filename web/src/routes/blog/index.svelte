@@ -63,4 +63,3 @@
     </li>
   {/each}
 </ul>
-<div>{JSON.stringify(posts[0])}</div>
