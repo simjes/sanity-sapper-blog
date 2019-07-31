@@ -4,68 +4,69 @@
 
 <style>
   nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
-    font-weight: 300;
-    padding: 0 1em;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 11px;
+    padding: 16px 20px;
+    background: #24243e;
   }
 
   ul {
+    display: flex;
     margin: 0;
     padding: 0;
   }
 
-  /* clearfix */
-  ul::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-
   li {
-    display: block;
-    float: left;
-  }
-
-  .selected {
-    position: relative;
-    display: inline-block;
-  }
-
-  .selected::after {
-    position: absolute;
-    content: "";
-    width: calc(100% - 1em);
-    height: 2px;
-    background-color: rgb(255, 62, 0);
-    display: block;
-    bottom: -1px;
+    list-style: none;
   }
 
   a {
     text-decoration: none;
-    padding: 1em 0.5em;
-    display: block;
+    margin: 0;
+    margin-left: 10px;
+    transition: color 250ms ease-in-out, transform 150ms ease;
+  }
+
+  .selected,
+  a:hover,
+  a:focus {
+    color: #24d8ff;
   }
 </style>
 
 <nav>
   <ul>
     <li>
-      <a
-        class={segment === undefined ? 'selected' : ''}
-        href="https://simjes.dev">
-        home
+      <a href="https://simjes.dev" target="_blank" rel="noopener noreferrer">
+        Home
       </a>
     </li>
 
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
+    <li>
+      <a
+        href="https://simjes.dev/toolbox"
+        target="_blank"
+        rel="noopener noreferrer">
+        Toolbox
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="https://simjes.dev/playground"
+        target="_blank"
+        rel="noopener noreferrer">
+        Playground
+      </a>
+    </li>
+
     <li>
       <a
         rel="prefetch"
         class={segment === 'blog' ? 'selected' : ''}
         href="blog">
-        blog
+        Blog
       </a>
     </li>
   </ul>
