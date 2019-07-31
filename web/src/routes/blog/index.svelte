@@ -26,10 +26,6 @@
 
 <script>
   export let posts;
-
-  function formatDate(date) {
-    return new Date(date).toLocaleDateString();
-  }
 </script>
 
 <style>
