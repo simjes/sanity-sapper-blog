@@ -4,6 +4,7 @@
 
   export let post;
   let visible = false;
+  const backgroundColor = getRandomBackground();
 
   function onMouseOver() {
     visible = true;
@@ -100,7 +101,7 @@
   rel="prefetch"
   href="blog/{post.slug}"
   title={post.title}>
-  <div class="card" style="background: {getRandomBackground()}">
+  <div class="card" style="background: {backgroundColor}">
     <img class="post-image" src={post.image} alt={post.title} />
 
     {#if visible}
