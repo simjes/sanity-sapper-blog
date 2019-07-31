@@ -7,13 +7,12 @@
         `*[_type == "post" && defined(slug.current) && publishedAt < now()]
 				{
 					title,
-					"types": categories[]->title,
+					"types": categories[] -> title,
 					"slug": slug.current,
-					"image": mainImage.asset->url,
-					"author": authors[0].author->
-						{
+					"image": mainImage.asset -> url,
+					"author": authors[0].author -> {
 							"alt": image.alt, 
-							"image": image.asset->url
+							"image": image.asset -> url
 						}
 				}
 				| order(publishedAt desc)`
@@ -34,6 +33,10 @@
 </script>
 
 <style>
+  h1 {
+    text-align: center;
+  }
+
   ul {
     margin: 0;
     padding: 0;
