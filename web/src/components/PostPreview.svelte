@@ -22,13 +22,43 @@
     overflow: hidden;
   }
 
+  .title {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+
+  .types {
+    font-size: 14px;
+    color: #e3e3e3;
+  }
+
+  .author {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .type-icon {
+    margin-right: 10px;
+  }
+
   .post-info {
+    display: flex;
+    justify-content: space-between;
     color: white;
+    padding: 15px;
     background: #111111cc;
     position: absolute;
+    right: 0;
+    left: 0;
     bottom: 0;
-    width: 100%;
-    height: 100px;
+    min-height: 70px;
+  }
+
+  .post-info > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .card:hover > .post-image {
@@ -40,6 +70,8 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    /* animation: image-up 1000ms cubic-bezier(0.215, 0.61, 0.355, 1) forwards; */
+
     animation: image-down 500ms ease-out forwards;
   }
 
@@ -73,7 +105,20 @@
 
     {#if visible}
       <div transition:fly={{ y: 100, duration: 1000 }} class="post-info">
-        {post.title}
+        <div>
+          <h2 class="title">{post.title}</h2>
+
+          <h3 class="types">
+            {#each post.types as type}
+              <img class="type-icon" src="/{type}.gif" alt="{type} icon" />
+            {/each}
+
+          </h3>
+        </div>
+
+        <div>
+          <img class="author" src={post.author.image} alt={post.author.alt} />
+        </div>
       </div>
     {/if}
   </div>

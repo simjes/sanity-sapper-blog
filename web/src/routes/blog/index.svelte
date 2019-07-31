@@ -7,8 +7,14 @@
         `*[_type == "post" && defined(slug.current) && publishedAt < now()]
 				{
 					title,
+					"types": categories[]->title,
 					"slug": slug.current,
-					"image": mainImage.asset->url
+					"image": mainImage.asset->url,
+					"author": authors[0].author->
+						{
+							"alt": image.alt, 
+							"image": image.asset->url
+						}
 				}
 				| order(publishedAt desc)`
       )
@@ -57,4 +63,4 @@
     </li>
   {/each}
 </ul>
-<div>{JSON.stringify(posts)}</div>
+<div>{JSON.stringify(posts[0])}</div>
