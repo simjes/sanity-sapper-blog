@@ -139,6 +139,24 @@
     width: 40px;
     border-radius: 50%;
   }
+
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+    }
+
+    .authors {
+      flex-direction: column;
+    }
+
+    .authors > *:not(:first-child) {
+      margin-left: 0;
+    }
+
+    .author-name {
+      font-size: 12px;
+    }
+  }
 </style>
 
 <svelte:head>
